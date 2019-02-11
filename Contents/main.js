@@ -44,7 +44,7 @@ function areachart(){
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
                 label: "My First dataset",
-                backgroundColor: 'rgb(255,99, 132) ',
+                backgroundColor: 'rgb(255,99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [0, 10, 5, 2, 20, 30, 45],
             }]
@@ -61,12 +61,12 @@ function combochart(){
         data: {
           datasets: [{
                 label: 'Bar Dataset',
-                backgroundColor: 'rgb(255,99, 132) ',
+                backgroundColor: 'rgb(255,99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [0, 10, 5, 2, 20, 30, 45]
               }, {
                 label: 'Line Dataset',
-                backgroundColor: 'rgb(255,200, 132) ',
+                backgroundColor: 'rgb(255,200, 132)',
                 borderColor: 'rgb(255, 150, 132)',
                 data: [5, 15, 10, 3, 24, 31, 40],
       
