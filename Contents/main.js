@@ -78,3 +78,44 @@ function combochart(){
         options: {}
       });
 }
+
+function radarchart(){
+    //RENDERIZAÇÃO DO RADAR CHART
+    var ctx5 = document.getElementById('radarchart').getContext('2d');
+    var radarChart = new Chart(ctx5, {
+        type: 'radar',
+        data: {
+          datasets: [{
+                backgroundColor: 'rgb(255,99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }],
+          labels: ['January', 'February', 'March', 'April',"May", "June", "July"]
+        },
+        options: {}
+      });
+}
+
+function piechart(){
+    //RENDERIZAÇÃO DO PIE CHART
+
+   // var arrayColor= ['red','orange','white','grey','black','yellow','blue'];
+    var arrayColor= [randomColor(),randomColor(),randomColor(),randomColor(),randomColor(),randomColor(),randomColor()];
+    var ctx5 = document.getElementById('piechart').getContext('2d');
+    var radarChart = new Chart(ctx5, {
+        type: 'pie',
+        data: {
+          datasets: [{
+                backgroundColor:arrayColor,
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }],
+          labels: ['January', 'February', 'March', 'April',"May", "June", "July"]
+        },
+        options: {}
+      });
+}
+
+function randomColor(){
+    return '#'+Math.floor(Math.random()*16777215).toString(16);
+}
