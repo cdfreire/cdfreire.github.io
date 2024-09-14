@@ -20,11 +20,32 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #0044cc;
-    padding: 20px 0;
+    background-color: #333;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header .logo h1 {
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    margin-right: 15px;
+    padding: 0px;
+}
+
+.site-title {
     color: white;
     font-size: 1.8rem;
     margin: 0;
@@ -34,7 +55,6 @@ nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
@@ -49,31 +69,24 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #f4f4f4;
+    color: #ff9900;
     text-decoration: underline;
 }
 
-/* Seção Hero */
-.hero-section {
-    background: linear-gradient(to right, #0044cc, #002a80);
-    color: white;
-    padding: 100px 0;
-    text-align: center;
-}
+/* Responsividade do Cabeçalho */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-.hero-section .cta-button {
-    background-color: #ff9900;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 30px;
-    margin-top: 20px;
-    display: inline-block;
-    font-weight: 600;
-}
+    nav ul {
+        margin-top: 15px;
+    }
 
-.hero-section .cta-button:hover {
-    background-color: #cc7a00;
+    .header-container {
+        flex-direction: column;
+    }
 }
 
 /* Seções Gerais */
@@ -86,6 +99,39 @@ nav ul li a:hover {
     color: #0044cc;
     margin-bottom: 40px;
     font-size: 2rem;
+}
+
+/* Seção Sobre Mim */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 40px;
+    text-align: justify;
+}
+
+.download-cv {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f8f8f8;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.download-cv:hover {
+    background-color: #5f5f61;
 }
 
 /* Seção Serviços */
@@ -101,11 +147,94 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-item h3 {
-    color: #0044cc;
-    margin-bottom: 15px;
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0044cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.service-button:hover {
+    background-color: #002a80;
+}
+
+/* Seção Informações e Contato */
+.info-contact-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.info-column {
+    flex: 1;
+    max-width: 48%;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-column {
+    flex: 1;
+    max-width: 48%;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.info-slide {
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.info-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.info-slide img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.info-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info-control {
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.info-control:hover {
+    background-color: #002a80;
 }
 
 /* Formulário de Contato */
@@ -129,6 +258,10 @@ form textarea {
     font-family: 'Poppins', sans-serif;
 }
 
+form textarea {
+    resize: none;
+}
+
 form button.cta-button {
     width: 100%;
     background-color: #0044cc;
@@ -150,6 +283,47 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    margin-top: 0px;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+    .about-text {
+        padding-left: 0;
+    }
+
+    .info-contact-container {
+        flex-direction: column;
+    }
+
+    .info-column,
+    .contact-column {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
 }
